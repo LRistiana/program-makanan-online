@@ -6,4 +6,7 @@ class MenuAdmin {
         System.out.println("Login Succes!");
         System.exit(0);
     }
+    private static void lihatRestauran(){
+        
+    }
 }
