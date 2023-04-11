@@ -3,15 +3,21 @@ package entity;
 import java.util.*;
 
 public class Restaurant {
-    private static int totalRestaurant;
+    private static int totalRestaurant = 0;
+    private int idRestaurant;
     private String nama;
     private String alamat;
-    private ArrayList<String> menu = ArrayList<String>();
-    private ArrayList<int> harga = ArrayList<int>();
+    private ArrayList<String> menu = new ArrayList<>();
+    private ArrayList<Integer> harga = new ArrayList<>();
 
-    public void Restauran(String nama, String alamat){
+    Restaurant(String nama, String alamat){
         this.nama = nama;
         this.alamat = alamat;
+        totalRestaurant++;
+        this.idRestaurant = totalRestaurant;
+    }
+    public int getIdRestaurant(){
+        return this.idRestaurant;
     }
 
     public String getNama() {
