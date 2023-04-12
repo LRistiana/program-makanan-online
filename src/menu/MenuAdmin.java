@@ -16,7 +16,8 @@ class MenuAdmin {
         System.out.println("1. Lihat Restaurant");
         System.out.println("2. Tambah Restaurant");
         System.out.println("3. Hapus Restaurant");
-        int pilihan  = inputInt("Masukan Pilihan",1,3);
+        System.out.println("4. Log Out");
+        int pilihan  = inputInt("Masukan Pilihan",1,4);
         switch (pilihan){
             case 1 :
                 lihatRestaurant();
@@ -27,42 +28,60 @@ class MenuAdmin {
             case 3 :
                 hapusRestaurant();
                 break;
+            case 4 :
+                if (inputInt("anda yakin?\n[1]Ya\n[0]Tidak",0,1) == 1){
+                    Login.login();
+                }else {
+                    main(null);
+                }
             default:
                 System.out.println("menu tidak tersedia");
         }
 
     }
-    private static void lihatRestaurant(){
+
+    private static void listRestaurant(){
         if (Restaurants.size() != 0){
             for (int i = 0; i < Restaurants.size(); i++) {
                 System.out.printf("%d.\t",i+1);
                 Restaurants.get(i).showData();
             }
         }else {
-            System.out.println("Tidak ada restaurant");
+            System.out.println("Tidak ada restaurant!");
         }
-
+    }
+    private static void lihatRestaurant(){
+        listRestaurant();
+        inputInt("Ketik 1 untuk kembali",1,1);
+        main(null);
     }
     private static void tambahRestaurant(){
-
-        String nama = inputString("Masukan Nama Restaurant baru");
-        String alamat = inputString("Masukan alamat restaurant " + nama);
-
-        Restaurants.add(new Restaurant(nama,alamat));
-        lihatRestaurant();
-        System.exit(0);
+        do {
+            Restaurants.add(new Restaurant(inputString("Masukan Nama Restaurant baru"),inputString("Masukan alamat restaurant ")));
+        }while (inputInt("Ingin Menambah Restaurant Lagi?\n[1]Ya\n[0]Tidak",0,1) == 1);
+        main(null);
     }
     private static void hapusRestaurant(){
-        System.out.println("Nama Restaurant");
-        lihatRestaurant();
-
-
-        int resDelete = inputInt("Masukan Nomer Restauran yang ingin dihapus",1,Restaurants.size());
-        int confirm = inputInt("apakah anda yakin?\n[1]Ya\n[2]Tidak",1,2);
-        if (confirm == 1){
-            hapusRestaurant();
+        listRestaurant();
+        if (Restaurants.size() == 0){
+            inputInt("Ketik 1 untuk kembali",1,1);
+            main(null);
+        }else {
+            int indexRestaurant = inputInt("Masukan Nomer Restauran yang ingin dihapus",1,Restaurants.size());
+            switch (inputInt("apakah anda yakin?\n[1]Ya\n[0]Tidak",0,1)) {
+                case 1:
+                    Restaurants.remove(indexRestaurant - 1);
+                    if (inputInt("Apakah ingin menghapus lagi?\n[1]Ya\n[0]Tidak") == 1) {
+                        hapusRestaurant();
+                    }
+                    break;
+                case 0:
+                    hapusRestaurant();
+                    break;
+            }
+            main(null);
         }
-        Restaurants.remove(resDelete-1);
+
     }
 
 }
