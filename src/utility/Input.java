@@ -11,6 +11,7 @@ public class Input {
                 sc.next();
             }
             number = sc.nextInt();
+        sc.nextLine();
         return number;
     }
 
@@ -31,6 +32,7 @@ public class Input {
             }
             System.out.println("Mohon masukan Angka Tidak Bisa kurang dari" + lowerLimit);
         }
+        sc.nextLine();
         return number;
     }
 
@@ -49,8 +51,9 @@ public class Input {
             if (number >= lowerLimit && number <= upperLimit) {
                 break;
             }
-            System.out.printf("Mohon masukan angka diantara %d dan %d",lowerLimit, upperLimit);
+            System.out.printf("Mohon masukan angka diantara %d dan %d\n",lowerLimit, upperLimit);
         }
+        sc.nextLine();
         return number;
     }
     public static String inputString(String message){
