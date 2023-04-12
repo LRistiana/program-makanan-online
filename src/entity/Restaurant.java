@@ -10,7 +10,7 @@ public class Restaurant {
     private ArrayList<String> menu = new ArrayList<>();
     private ArrayList<Integer> harga = new ArrayList<>();
 
-    Restaurant(String nama, String alamat){
+    public Restaurant(String nama, String alamat){
         this.nama = nama;
         this.alamat = alamat;
         totalRestaurant++;
@@ -39,14 +39,21 @@ public class Restaurant {
     public void addMenu(String menu,int harga){
         this.menu.add(menu);
         this.harga.add(harga);
+
     }
     public void showMenu(){
         if (menu.size() == 0){
             System.out.println("Restauran ini tidak memiliki menu");
         }else {
             for (int i = 0; i < menu.size(); i++) {
-                System.out.printf("%s\t\t%d", menu[i], harga[i]);
+                System.out.printf("%s\t\t%d", menu.get(i), harga.get(i));
             }
         }
+    }
+    
+    public void showData(){
+        System.out.println(this.nama);
+        showMenu();
+        System.out.println();
     }
 }
