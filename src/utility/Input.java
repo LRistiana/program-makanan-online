@@ -53,4 +53,8 @@ public class Input {
         }
         return number;
     }
+    public static String inputString(String message){
+        System.out.println(message);
+        return sc.nextLine();
+    }
 }
