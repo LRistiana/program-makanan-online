@@ -17,16 +17,13 @@ public class Login {
                     System.out.println("Masukan Password ('0' kembali)");
                     password = input.nextLine();
                     if (password.equals(passwordAdmin)){
-                        MenuAdmin.mainAdmin();
+                        MenuAdmin.main(null);
                     }else if (password.equals("0")) {
                         break;
                     } else{
                         System.out.println("Password salah!");
                     }
                 }
-
-
-
             } else if (username.equals("customer")) {
                 while(true){
                     System.out.println("Masukan Password ('0' kembali)");

@@ -30,7 +30,7 @@ public class Input {
             if (number >= lowerLimit) {
                 break;
             }
-            System.out.println("Mohon masukan Angka Tidak Bisa kurang dari" + lowerLimit);
+            System.out.println("Angka Tidak Bisa kurang dari " + lowerLimit);
         }
         sc.nextLine();
         return number;
