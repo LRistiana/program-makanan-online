@@ -40,18 +40,22 @@ class MenuAdmin {
 
     }
 
-    private static void listRestaurant(){
+    private static void showListRestaurant(){
         if (Restaurants.size() != 0){
             for (int i = 0; i < Restaurants.size(); i++) {
                 System.out.printf("%d.\t",i+1);
-                Restaurants.get(i).showData();
+                Restaurants.get(i).showAllData();
             }
         }else {
             System.out.println("Tidak ada restaurant!");
         }
     }
+
+    public static ArrayList<Restaurant> getListRestaurant(){
+        return Restaurants;
+    }
     private static void lihatRestaurant(){
-        listRestaurant();
+        showListRestaurant();
         inputInt("Ketik 1 untuk kembali",1,1);
         main(null);
     }
@@ -62,7 +66,7 @@ class MenuAdmin {
         main(null);
     }
     private static void hapusRestaurant(){
-        listRestaurant();
+        showListRestaurant();
         if (Restaurants.size() == 0){
             inputInt("Ketik 1 untuk kembali",1,1);
             main(null);

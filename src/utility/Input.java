@@ -51,7 +51,7 @@ public class Input {
             if (number >= lowerLimit && number <= upperLimit) {
                 break;
             }
-            System.out.printf("Mohon masukan angka diantara %d dan %d\n",lowerLimit, upperLimit);
+            System.out.printf("Mohon masukan angka diantara %d sampai %d\n",lowerLimit, upperLimit);
         }
         sc.nextLine();
         return number;

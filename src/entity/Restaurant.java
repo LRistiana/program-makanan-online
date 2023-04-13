@@ -45,10 +45,16 @@ public class Restaurant {
     public void addMenu(String menu,int harga){
         this.menu.add(menu);
         this.harga.add(harga);
-
-
     }
-    public void showMenu(){
+    public String getMenu(int index){
+        return menu.get(index);
+    }public int getHarga(int index){
+        return harga.get(index);
+    }
+    public int getTotalMenu(){
+        return menu.size();
+    }
+    public void showAllMenu(){
         if (menu.size() == 0){
             System.out.println("\tRestauran ini tidak memiliki menu");
         }else {
@@ -58,11 +64,14 @@ public class Restaurant {
             }
         }
     }
-    
     public void showData(){
         System.out.println(this.nama);
+        System.out.println("\talamat : "+ this.alamat);
+    }
+    public void showAllData(){
+        System.out.println(this.nama);
         System.out.println("\talamat : " + this.alamat);
-        showMenu();
+        showAllMenu();
         System.out.println();
     }
 }

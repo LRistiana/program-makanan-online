@@ -29,7 +29,7 @@ public class Login {
                     System.out.println("Masukan Password ('0' kembali)");
                     password = input.nextLine();
                     if (password.equals(passwordCustomer)){
-                        MenuCustomer.mainCustomer();
+                        MenuCustomer.main(null);
                     }else if (password.equals("0")) {
                         break;
                     } else{
