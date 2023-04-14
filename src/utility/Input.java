@@ -6,8 +6,9 @@ public class Input {
     public static int inputInt(String message){
         int number;
             System.out.println(message);
-            while (!sc.hasNextInt()) {
-                System.out.println("Mohon masukan angka");
+            System.out.print(">> ");
+        while (!sc.hasNextInt()) {
+                System.err.println("Mohon masukan angka");
                 sc.next();
             }
             number = sc.nextInt();
@@ -20,8 +21,9 @@ public class Input {
         int number;
         while (true){
             System.out.println(message);
+            System.out.print(">> ");
             while (!sc.hasNextInt()) {
-                System.out.println("Mohon masukan angka");
+                System.err.println("Mohon masukan angka");
                 sc.next();
             }
             number = sc.nextInt();
@@ -30,7 +32,7 @@ public class Input {
             if (number >= lowerLimit) {
                 break;
             }
-            System.out.println("Angka Tidak Bisa kurang dari " + lowerLimit);
+            System.err.println("Angka Tidak Bisa kurang dari " + lowerLimit);
         }
         sc.nextLine();
         return number;
@@ -41,8 +43,9 @@ public class Input {
         int number;
         while (true){
             System.out.println(message);
+            System.out.print(">> ");
             while (!sc.hasNextInt()) {
-                System.out.println("Mohon masukan angka");
+                System.err.println("Mohon masukan angka");
                 sc.next();
             }
             number = sc.nextInt();
@@ -51,13 +54,14 @@ public class Input {
             if (number >= lowerLimit && number <= upperLimit) {
                 break;
             }
-            System.out.printf("Mohon masukan angka diantara %d sampai %d\n",lowerLimit, upperLimit);
+            System.err.printf("Mohon masukan angka diantara %d sampai %d\n",lowerLimit, upperLimit);
         }
         sc.nextLine();
         return number;
     }
     public static String inputString(String message){
         System.out.println(message);
+        System.out.print(">> ");
         return sc.nextLine();
     }
 }
