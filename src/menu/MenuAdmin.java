@@ -1,23 +1,20 @@
 package menu;
 
 import entity.Restaurant;
-
 import static utility.Input.*;
+import static utility.Console.*;
 import static data.Restaurants.*;
 
 class MenuAdmin {
-
     public static void main(String[] args){
-
-
+        clrscr();
         System.out.println("Login Succes!");
         System.out.println("Menu Admin");
         System.out.println("1. Lihat Restaurant");
         System.out.println("2. Tambah Restaurant");
         System.out.println("3. Hapus Restaurant");
         System.out.println("4. Log Out");
-        int pilihan  = inputInt("Masukan Pilihan",1,4);
-        switch (pilihan){
+        switch (inputInt("Masukan Pilihan",1,4)){
             case 1 :
                 lihatRestaurant();
                 break;
@@ -29,7 +26,7 @@ class MenuAdmin {
                 break;
             case 4 :
                 if (inputInt("anda yakin?\n[1]Ya\n[0]Tidak",0,1) == 1){
-                    Login.login();
+                    Login.main(null);
                 }else {
                     main(null);
                 }
@@ -51,19 +48,22 @@ class MenuAdmin {
 
     private static void lihatRestaurant(){
         showListRestaurant();
-        inputInt("Ketik 1 untuk kembali",1,1);
+        inputInt("[1]kembali",1,1);
         main(null);
     }
     private static void tambahRestaurant(){
         do {
             getListRestaurant().add(new Restaurant(inputString("Masukan Nama Restaurant baru"),inputString("Masukan alamat restaurant ")));
+            if (inputInt("Tambahkan Menu?\n[1]Ya\n[0]Tidak",0,1) == 1){
+                addMenuRestaurant(getListRestaurant().size()-1);//restaurant yang baru ditambahkan pasti berada di index terakir
+            }
         }while (inputInt("Ingin Menambah Restaurant Lagi?\n[1]Ya\n[0]Tidak",0,1) == 1);
         main(null);
     }
     private static void hapusRestaurant(){
         showListRestaurant();
         if (getListRestaurant().size() == 0){
-            inputInt("Ketik 1 untuk kembali",1,1);
+            inputInt("[1]kembali",1,1);
             main(null);
         }else {
             int indexRestaurant = inputInt("Masukan Nomer Restauran yang ingin dihapus",1,getListRestaurant().size());
@@ -81,6 +81,13 @@ class MenuAdmin {
             main(null);
         }
 
+    }
+
+    private static void addMenuRestaurant(int idRestaurant){
+        do {
+            //mengambil restaurant sesuai indexnya kemudian memanggil fungsi addMenu dan memasukan nama menu serta harganya
+            getListRestaurant().get(idRestaurant).addMenu(inputString("Masukan nama menu"),inputInt("Masukan harganya",0));
+        }while (inputInt("Apakah ingin menambahkan menu lain?\n[1]Ya\n[0] Tidak",0,1) == 1);
     }
 
 }
