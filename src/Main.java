@@ -1,13 +1,8 @@
-import java.util.*;
-import static menu.Login.*;
+import menu.Login;
+import static utility.Console.clrscr;
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        login();
-
-
-
-
+        clrscr();
+        Login.main(null);
     }
-
 }

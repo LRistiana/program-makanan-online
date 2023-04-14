@@ -1,39 +1,34 @@
 package menu;
-import java.util.*;
-
-
+import static utility.Input.*;
+import static utility.Console.clrscr;
 public class Login {
     private static final String passwordAdmin = "admin";
     private static final String passwordCustomer = "user123";
-    public static void login(){
-        Scanner input = new Scanner(System.in);
+    public static void main(String[] args){
+        clrscr();
         String username, password;
-
         while(true){
-            System.out.println("Masukan Username ('0' untuk keluar)");
-            username = input.nextLine();
+            username = inputString("Masukan Username\n[0]Keluar");
             if (username.equals("admin")){
                 while(true){
-                    System.out.println("Masukan Password ('0' kembali)");
-                    password = input.nextLine();
+                    password = inputString("Masukan Password\n[0]Kembali");
                     if (password.equals(passwordAdmin)){
                         MenuAdmin.main(null);
                     }else if (password.equals("0")) {
                         break;
                     } else{
-                        System.out.println("Password salah!");
+                        System.err.println("Password salah!");
                     }
                 }
             } else if (username.equals("customer")) {
                 while(true){
-                    System.out.println("Masukan Password ('0' kembali)");
-                    password = input.nextLine();
+                    password = inputString("Masukan Password\n[0]Kembali");
                     if (password.equals(passwordCustomer)){
                         MenuCustomer.main(null);
                     }else if (password.equals("0")) {
                         break;
                     } else{
-                        System.out.println("Password salah!");
+                        System.err.println("Password salah!");
                     }
                 }
             } else if (username.equals("0")) {
@@ -42,8 +37,5 @@ public class Login {
                 System.out.println("Username tidak ditemukan!");
             }
         }
-
-
-
     }
 }
