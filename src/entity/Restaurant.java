@@ -2,6 +2,7 @@ package entity;
 
 import java.util.*;
 import static utility.Input.*;
+
 public class Restaurant {
     private static int totalRestaurant = 0;
     private int idRestaurant;
@@ -15,12 +16,6 @@ public class Restaurant {
         this.alamat = alamat;
         totalRestaurant++;
         this.idRestaurant = totalRestaurant;
-        while(inputInt("Apakah ingin menambahkan menu?\n[1]Ya [0] Tidak",0,1) == 1){
-//            if (inputInt("Apakah ingin menambahkan menu?\n[1]Ya [0] Tidak",0,1) == 0){
-//                break;
-//            }
-            this.addMenu(inputString("Masukan nama menu"),inputInt("Masukan harganya",0));
-        }
     }
     public int getIdRestaurant(){
         return this.idRestaurant;
@@ -60,7 +55,7 @@ public class Restaurant {
         }else {
             System.out.println("\tMenu :");
             for (int i = 0; i < menu.size(); i++) {
-                System.out.printf("\t\t- %s\t\tRp.%d\n", menu.get(i), harga.get(i));
+                System.out.printf("\t\t%d. %s\t\tRp.%d\n",i+1, menu.get(i), harga.get(i));
             }
         }
     }
