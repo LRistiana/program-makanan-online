@@ -18,10 +18,10 @@ public class Order {
     public void addMenu(int idMenu, int harga, int kuantitas){
         this.idMenu.add(idMenu);
         this.kuantitas.add(kuantitas);
-        totalHarga += harga;
+        totalHarga += harga*kuantitas;
     }
     public void removeMenu(int indexMenu,int harga){
-        totalHarga -= harga;
+        this.totalHarga -= harga*this.kuantitas.get(indexMenu);
         this.idMenu.remove(indexMenu);
         this.kuantitas.remove(indexMenu);
     }
@@ -33,6 +33,9 @@ public class Order {
     }
     public int getTotalHarga(){
         return totalHarga;
+    }
+    public void setTotalHarga(int totalHarga){
+        this.totalHarga = totalHarga;
     }
     public int getIdRestaurant(){
         return idRestaurant;
