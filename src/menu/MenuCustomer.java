@@ -2,14 +2,14 @@ package menu;
 
 import entity.Order;
 import entity.Restaurant;
-
 import static utility.Input.*;
 import static data.Restaurants.*;
 import java.util.ArrayList;
-
+import static utility.Console.clrscr;
 class MenuCustomer {
     private static ArrayList<Order>orders = new ArrayList<>();
     public static void main(String[] args){
+        clrscr();
         System.out.println("Menu Customer");
         System.out.println("[1]Buat Pesanan");
         System.out.println("[2]Lihat Pesanan");
@@ -23,7 +23,7 @@ class MenuCustomer {
                 break;
             case 3:
                 if (inputInt("anda yakin?\n[1]Ya\n[0]Tidak",0,1) == 1){
-                    Login.login();
+                    Login.main(null);
                 }else {
                     main(null);
                 }
@@ -33,27 +33,30 @@ class MenuCustomer {
         if (getListRestaurant().size() == 0){
 
             System.out.println("Tidak ada Restaurant!");
+            inputInt("[1]Kembali",1,1);
             main(null);
         }else {
+            System.out.println("Daftar Restaurant");
             for (int i = 0; i < getListRestaurant().size(); i++) {
+                System.out.printf("%d.\t",i+1);
                 getListRestaurant().get(i).showData();
-
-                int idRestaurantSelected = inputInt("Pilih Restaurant\n[0]Kembali",0,getListRestaurant().size()) - 1;
-                if (idRestaurantSelected == -1){
+                System.out.println(" ");
+            }
+            int idRestaurantSelected = inputInt("Pilih Restaurant\n[0]Kembali",0,getListRestaurant().size()) - 1;
+            if (idRestaurantSelected == -1){//kembali memilih restaurant
+                buatPesanan();
+            }if (getListRestaurant().get(idRestaurantSelected).getTotalMenu() == 0){//mengecek apakah terdapat menu di restaurant terpilih
+                System.out.println("Restaurant ini belum memiliki menu!");
+                inputInt("[1]Kembali",1,1);
+            }else {
+                int jarakAntar = inputInt("Masukan jarak antar lokasi anda",0);
+                orders.add(new Order(idRestaurantSelected,jarakAntar));
+                addMenuOrder(idRestaurantSelected,orders.size()-1);
+                editMenuOrder(idRestaurantSelected,orders.size()-1);
+                if (inputInt("Apakah ingin membuat Pesanan Lagi?\n[1]Ya\n[0]Tidak",0,1) == 1){
                     buatPesanan();
                 }else {
-                    int jarakAntar = inputInt("Masukan jarak antar lokasi anda",0);
-
-                    orders.add(new Order(idRestaurantSelected,jarakAntar));
-                    addMenuOrder(idRestaurantSelected,orders.size()-1);
-                    editMenuOrder(idRestaurantSelected,orders.size()-1);
-
-
-                    if (inputInt("Apakah ingin membuat Pesanan Lagi?\n[1]Ya\n[0]Tidak",0,1) == 1){
-                        buatPesanan();
-                    }else {
-                        main(null);
-                    }
+                    main(null);
                 }
             }
         }
@@ -73,6 +76,10 @@ class MenuCustomer {
                     orders.remove(idOrderSelected);
                     break;
                 case 1:
+                    if (orders.get(idOrderSelected).getIdMenus().size() == 0){//mencegah terbuatnya order dengan 0 menu dipesan
+                        inputInt("Untuk membuat Pesanan Setidaknya Ada 1 menu yang dipesan!\n[1]Kembali",1,1);
+                        continue;
+                    }
                     break;
             }
             break;
@@ -80,14 +87,23 @@ class MenuCustomer {
     }
 
     private static void addMenuOrder(int idRestaurantSelected,int idOrderSelected){
-        Restaurant SelectedRestaurant = getListRestaurant().get(idRestaurantSelected);
-        SelectedRestaurant.showAllData();
+        Restaurant selectedRestaurant = getListRestaurant().get(idRestaurantSelected);
+        selectedRestaurant.showAllData();
+        Order selectedOrder = orders.get(idOrderSelected);
         int idMenuSelected;
         int tempKuantitas;
         do {
-            idMenuSelected = inputInt("Pilih Nomer Menu",1,SelectedRestaurant.getTotalMenu()) - 1;
-            tempKuantitas = inputInt("Jumlah",0);
-            orders.get(idOrderSelected).addMenu(idMenuSelected, SelectedRestaurant.getHarga(idMenuSelected),tempKuantitas);
+            idMenuSelected = inputInt("Pilih Nomer Menu",1,selectedRestaurant.getTotalMenu()) - 1;
+            tempKuantitas = inputInt("Jumlah",1);
+            if (selectedOrder.getIdMenus().contains(idMenuSelected)){ // cek apakah menu terpilih sudah ada di orderan
+                int oldKuantitas = selectedOrder.getKuantitas().get(idMenuSelected);
+                int oldTotalHarga = selectedOrder.getTotalHarga();
+                selectedOrder.getKuantitas().set(idMenuSelected, oldKuantitas + tempKuantitas);
+                selectedOrder.setTotalHarga(oldTotalHarga + selectedRestaurant.getHarga(idRestaurantSelected)*tempKuantitas);
+            }else {// menu terpilih belum ada di orderan
+                selectedOrder.addMenu(idMenuSelected, selectedRestaurant.getHarga(idMenuSelected),tempKuantitas);
+            }
+
         }while (inputInt("Apakah ingin menambah menu?\n[1]Ya\n[0]Tidak",0,1) == 1);
     }
     private static void removeMenuOrder(int idRestaurantSelected,int idOrderSelected){
@@ -116,25 +132,26 @@ class MenuCustomer {
     private static void showOrder(int idOrder){
         Order selectedOrder = orders.get(idOrder);
         Restaurant selectedRestaurant = getListRestaurant().get(selectedOrder.getIdRestaurant());
-
         int tempIdMenu;
         String tempMenu;
         int tempHarga;
-        System.out.println("Order No. " + idOrder);
+
+        System.out.printf("Order No. %d\n", idOrder+1);
         System.out.println("Nama Restaurant :\t" + selectedRestaurant.getNama());
         System.out.println("Alamat Restaurant :\t" + selectedRestaurant.getAlamat());
+        System.out.println("Jarak Antar Lokasi :\t" + selectedOrder.getJarakAntar() + " km");
 
         if (selectedOrder.getIdMenus().size() != 0){
-            System.out.println("No.\tID Menu\tNama Menu\tHarga\tKuantitas");
+            System.out.println("No.\t\tID Menu\t\tNama Menu\t\tHarga\tKuantitas");
             for (int i = 0; i < selectedOrder.getIdMenus().size(); i++) {
                 tempIdMenu = selectedOrder.getIdMenus().get(i);
                 tempMenu = selectedRestaurant.getMenu(tempIdMenu);
                 tempHarga = selectedRestaurant.getHarga(tempIdMenu);
-                System.out.printf("%d\t%d\t%s\t%d\t%d\n",i,tempIdMenu,tempMenu,tempHarga,selectedOrder.getKuantitas().get(i));
+                System.out.printf("%d\t\t%d\t\t\t%s\t%d\t\t%d\n",i+1,tempIdMenu+1,tempMenu,tempHarga,selectedOrder.getKuantitas().get(i));
             }
-            System.out.println("\t\t\t\t\tTotal : Rp."+selectedOrder.getTotalHarga());
+            System.out.println("\t\t\t\t\t\tTotal : Rp."+selectedOrder.getTotalHarga());
         }else{
-            System.out.println("\nTidak ada Menu yang diPesan");
+            System.out.println("\nTidak ada Menu yang di Pesan");
         }
     }
     private static void lihatPesanan(){
@@ -143,9 +160,9 @@ class MenuCustomer {
             System.out.println("Tidak ada Pesanan Terbuat");
             main(null);
         }else {
-            System.out.printf("%d Pesanan Terbuat", orders.size());
+            System.out.printf("%d Pesanan Terbuat\n", orders.size());
             for (int i = 0; i < orders.size(); i++) {
-                System.out.printf("\t%d. %s\n",i,getListRestaurant().get(orders.get(i).getIdRestaurant()).getNama());
+                System.out.printf("\t%d.\t%s\n",i+1,getListRestaurant().get(orders.get(i).getIdRestaurant()).getNama());
             }
             int noOrderSelected = inputInt("Pilih nomer pesanan untuk melihat detail\n[0]Kembali",0,orders.size()) - 1;
             if (noOrderSelected == -1){
