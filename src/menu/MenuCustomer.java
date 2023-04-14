@@ -4,7 +4,7 @@ import entity.Order;
 import entity.Restaurant;
 
 import static utility.Input.*;
-import static menu.MenuAdmin.*;
+import static data.Restaurants.*;
 import java.util.ArrayList;
 
 class MenuCustomer {
@@ -33,6 +33,7 @@ class MenuCustomer {
         if (getListRestaurant().size() == 0){
 
             System.out.println("Tidak ada Restaurant!");
+            main(null);
         }else {
             for (int i = 0; i < getListRestaurant().size(); i++) {
                 getListRestaurant().get(i).showData();
@@ -140,6 +141,7 @@ class MenuCustomer {
 
         if (orders.size()== 0){
             System.out.println("Tidak ada Pesanan Terbuat");
+            main(null);
         }else {
             System.out.printf("%d Pesanan Terbuat", orders.size());
             for (int i = 0; i < orders.size(); i++) {

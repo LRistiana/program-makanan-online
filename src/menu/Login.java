@@ -37,7 +37,7 @@ public class Login {
                     }
                 }
             } else if (username.equals("0")) {
-                break;
+                System.exit(0);
             } else {
                 System.out.println("Username tidak ditemukan!");
             }
