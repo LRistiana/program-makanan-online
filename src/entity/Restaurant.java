@@ -43,7 +43,18 @@ public class Restaurant {
     }
     public String getMenu(int index){
         return menu.get(index);
-    }public int getHarga(int index){
+    }
+    public void setMenuName(int idMenu, String newName){
+        this.menu.set(idMenu,newName);
+    }public void setMenuharga(int idMenu, int newHarga){
+        this.harga.set(idMenu,newHarga);
+    }
+    public void removeMenu(int idMenu){
+        this.menu.remove(idMenu);
+        this.harga.remove(idMenu);
+    }
+
+    public int getHarga(int index){
         return harga.get(index);
     }
     public int getTotalMenu(){
