@@ -7,11 +7,14 @@ public class Login {
     public static void main(String[] args){
         clrscr();
         String username, password;
+        System.out.println("=============================================");
+        System.out.println("||          Program Makanan Online         ||");
+        System.out.println("=============================================");
         while(true){
             username = inputString("Masukan Username\n[0]Keluar");
             if (username.equals("admin")){
                 while(true){
-                    password = inputString("Masukan Password\n[0]Kembali");
+                    password = inputString("\nMasukan Password\n[0]Kembali");
                     if (password.equals(passwordAdmin)){
                         MenuAdmin.main(null);
                     }else if (password.equals("0")) {
@@ -22,7 +25,7 @@ public class Login {
                 }
             } else if (username.equals("customer")) {
                 while(true){
-                    password = inputString("Masukan Password\n[0]Kembali");
+                    password = inputString("\nMasukan Password\n[0]Kembali");
                     if (password.equals(passwordCustomer)){
                         MenuCustomer.main(null);
                     }else if (password.equals("0")) {

@@ -10,7 +10,9 @@ class MenuCustomer {
     private static ArrayList<Order>orders = new ArrayList<>();
     public static void main(String[] args){
         clrscr();
-        System.out.println("Menu Customer");
+        System.out.println("=============================================");
+        System.out.println("||              Menu Customer              ||");
+        System.out.println("=============================================");
         System.out.println("[1]Buat Pesanan");
         System.out.println("[2]Lihat Pesanan");
         System.out.println("[3]Log Out");
@@ -30,24 +32,29 @@ class MenuCustomer {
         }
     }
     private static void buatPesanan(){
+        clrscr();
+        System.out.println("=============================================");
+        System.out.println("||              Menu Customer              ||");
+        System.out.println("||              Buat Pesanan               ||");
+        System.out.println("=============================================");
         if (getListRestaurant().size() == 0){
 
             System.out.println("Tidak ada Restaurant!");
             inputInt("[1]Kembali",1,1);
             main(null);
         }else {
-            System.out.println("Daftar Restaurant");
             for (int i = 0; i < getListRestaurant().size(); i++) {
                 System.out.printf("%d.\t",i+1);
                 getListRestaurant().get(i).showData();
                 System.out.println(" ");
             }
             int idRestaurantSelected = inputInt("Pilih Restaurant\n[0]Kembali",0,getListRestaurant().size()) - 1;
-            if (idRestaurantSelected == -1){//kembali memilih restaurant
-                buatPesanan();
+            if (idRestaurantSelected == -1){//kembali ke menu
+                main(null);
             }if (getListRestaurant().get(idRestaurantSelected).getTotalMenu() == 0){//mengecek apakah terdapat menu di restaurant terpilih
                 System.out.println("Restaurant ini belum memiliki menu!");
                 inputInt("[1]Kembali",1,1);
+                buatPesanan();
             }else {
                 int jarakAntar = inputInt("Masukan jarak antar lokasi anda",0);
                 orders.add(new Order(idRestaurantSelected,jarakAntar));
@@ -64,6 +71,7 @@ class MenuCustomer {
 
     private static void editMenuOrder(int idRestaurantSelected,int idOrderSelected){
         while (true){
+            clrscr();
             showOrder(idOrderSelected);
             switch (inputInt("[1]Konfirmasi Pesanan\n[2]Tambah Menu\n[3]hapus Menu\n[4]Batalkan Pesanan",1,4)){
                 case 2 :
@@ -109,6 +117,13 @@ class MenuCustomer {
     private static void removeMenuOrder(int idRestaurantSelected,int idOrderSelected){
         Restaurant selectedRestaurant = getListRestaurant().get(idRestaurantSelected);
         Order selectedOrder = orders.get(idOrderSelected);
+
+        clrscr();
+        System.out.println("=============================================");
+        System.out.println("||               Menu Customer             ||");
+        System.out.println("||                Hapus Menu               ||");
+        System.out.println("=============================================");
+
         showOrder(idOrderSelected);
         int noMenuOrderSelected;//nomer menu yang akan di hapus
         int hargaMenuOrderSelected;//harga menu yang akan di hapus
@@ -130,6 +145,12 @@ class MenuCustomer {
 
 
     private static void showOrder(int idOrder){
+        clrscr();
+        System.out.println("=============================================");
+        System.out.println("||              Menu Customer              ||");
+        System.out.println("||           Lihat Pesanan Detail          ||");
+        System.out.println("=============================================");
+
         Order selectedOrder = orders.get(idOrder);
         Restaurant selectedRestaurant = getListRestaurant().get(selectedOrder.getIdRestaurant());
         int tempIdMenu;
@@ -155,9 +176,15 @@ class MenuCustomer {
         }
     }
     private static void lihatPesanan(){
+        clrscr();
+        System.out.println("=============================================");
+        System.out.println("||              Menu Customer              ||");
+        System.out.println("||             Daftar Pesanan              ||");
+        System.out.println("=============================================");
 
         if (orders.size()== 0){
             System.out.println("Tidak ada Pesanan Terbuat");
+            inputInt("[1]Kembali",1,1);
             main(null);
         }else {
             System.out.printf("%d Pesanan Terbuat\n", orders.size());
@@ -169,7 +196,7 @@ class MenuCustomer {
                 main(null);
             }else {
                 showOrder(noOrderSelected);
-                if (inputInt("[1]Kembali\n[0]Menu") == 1){
+                if (inputInt("[1]Kembali\n[0]Menu",0,1) == 1){
                     lihatPesanan();
                 }else {
                     main(null);
