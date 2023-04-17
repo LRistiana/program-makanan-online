@@ -1,5 +1,8 @@
 # program-makanan-online
 program-makanan-online merupakan program makanan online dimana program ini membantu user untuk membuat pesanan dari salah satu restaurant yang dipilihnya
+
+## Pembuat
+@LRistiana
  
 ## Spesifikasi Program
 ### Dibuat dengan
