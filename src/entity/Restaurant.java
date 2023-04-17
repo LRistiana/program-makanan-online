@@ -4,8 +4,6 @@ import java.util.*;
 import static utility.Input.*;
 
 public class Restaurant {
-    private static int totalRestaurant = 0;
-    private int idRestaurant;
     private String nama;
     private String alamat;
     private ArrayList<String> menu = new ArrayList<>();
@@ -14,11 +12,6 @@ public class Restaurant {
     public Restaurant(String nama, String alamat){
         this.nama = nama;
         this.alamat = alamat;
-        totalRestaurant++;
-        this.idRestaurant = totalRestaurant;
-    }
-    public int getIdRestaurant(){
-        return this.idRestaurant;
     }
 
     public String getNama() {
