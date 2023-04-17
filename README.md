@@ -13,34 +13,34 @@ hanya memiliki 2 jenis akun customer dan admin, masing-masing jenisnya hanya ada
 ### Admin
 fitur yang dimiliki oleh admin adalah manipulasi data restaurant
     * Lihat Restaurant
-        Fitur ini akan menampilkan list data restaurant yang dimiliki<br />
-        program-makanan-online saat dijalankan.<br />
+        Fitur ini akan menampilkan list data restaurant yang dimiliki.
+        program-makanan-online saat dijalankan.
     * Tambah Restaurant
-        fitur ini memungkinkan admin untuk menambahkan data restaurant<br />
-        didalam program-makanan-online.<br />
+        fitur ini memungkinkan admin untuk menambahkan data restaurant.
+        didalam program-makanan-online.
     * Hapus Restaurant
-        fitur ini memungkinkan admin untuk menghapus data restaurant<br />
-        didalam program-makanan-online.<br />
-        untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan<br />
+        fitur ini memungkinkan admin untuk menghapus data restaurant.
+        didalam program-makanan-online.
+        untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan.
     * Edit Restaurant
-        fitur ini memungkinkan admin untuk mengediut data restaurant.<br />
-        yang dimiliki oleh suatu restaurant.<br />
-        untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan.<br />
-        berikut ini data yang bisa diubah<br />
+        fitur ini memungkinkan admin untuk mengediut data restaurant.
+        yang dimiliki oleh suatu restaurant.
+        untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan.
+        berikut ini data yang bisa diubah.
         * Nama Restaurant
         * Alamat Restaurant
         * Menu Restaurant
-            merubah nama dan harga suatu menu, menambah menu, dan menghapus menu<br />
+            merubah nama dan harga suatu menu, menambah menu, dan menghapus menu.
     * Log Out
     
 ### Customer
 fitur yang dimiliki customer hanya membuat order dari restaurant yang tersedia
     * Buat Pesanan
-        Fitur memungkinkan customer untuk membuat pesanan dengan memilih menu pada suatu restaurant<br />
-        fitur ini hanya bisa digunakan saat sudah ada restaurant di dalam program<br />
+        Fitur memungkinkan customer untuk membuat pesanan dengan memilih menu pada suatu restaurant.
+        fitur ini hanya bisa digunakan saat sudah ada restaurant di dalam program.
     * Lihat Pesanan
-        Fitur ini memungkinkan customer untuk melihat pesanan yang sudah dibuatnya<br />
-        fitur ini hanya akan bisa digunakan saat sudah ada pesanan yang telah dibuat<br />
+        Fitur ini memungkinkan customer untuk melihat pesanan yang sudah dibuatnya.
+        fitur ini hanya akan bisa digunakan saat sudah ada pesanan yang telah dibuat.
     * Log Out
 
 
