@@ -1,6 +1,5 @@
 # program-makanan-online
-    program-makanan-online merupakan program makanan online dimana program ini membantu user
-    untuk membuat pesanan dari salah satu restaurant yang dipilihnya
+program-makanan-online merupakan program makanan online dimana program ini membantu user untuk membuat pesanan dari salah satu restaurant yang dipilihnya
  
 ## Spesifikasi Program
 ### Dibuat dengan
@@ -47,10 +46,10 @@ fitur yang dimiliki customer hanya membuat order dari restaurant yang tersedia
 
 ## Akun
 >Username Admin : admin
-password Admin : admin
+>password Admin : admin
 
 >Username Customer : customer
-password customer : user123
+>password customer : user123
 
 ## memulai program-makanan-online
 
@@ -79,3 +78,5 @@ berikut ini merupakan fitur yang dimiliki menu customer
 
 
 ## UML program-makanan-online
+![UML program makanan online](https://user-images.githubusercontent.com/108977710/232536729-ae823393-3fde-4742-b64a-77bdcb606baf.png)
+
