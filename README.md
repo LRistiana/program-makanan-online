@@ -63,47 +63,47 @@ sesuai dengan akun yang digunakannya.<br />
 ### Menu Admin
 <img width="162" alt="image" src="https://user-images.githubusercontent.com/108977710/232537895-864e0d16-3ec2-4901-a38b-f4823e5dbb85.png">
 
-Menu Ini hanya akan bisa digunakan saat login menggunakan akun admin<br />
-berikut ini merupakan fitur dari menu admin<br />
+Menu Ini hanya akan bisa digunakan saat login menggunakan akun admin.
+berikut ini merupakan fitur dari menu admin
 
-* Lihat Restaurant
+#### Lihat Restaurant
 <img width="167" alt="image" src="https://user-images.githubusercontent.com/108977710/232538358-bf3c0495-5d7f-4fcf-bab9-6bd98833725b.png">
-admin dapat melihat daftar restaurant yang telah dibuat pada menu ini<br />
+admin dapat melihat daftar restaurant yang telah dibuat pada menu ini.
 
-* Tambah Restaurant
-<img width="164" alt="image" src="https://user-images.githubusercontent.com/108977710/232538046-b6cc8f20-65ee-442e-8144-3b29001d6adb.png">
-admin menambahkan restaurant pada menu ini<br />
-admin dapat menambahkan langsung menu pada restarant atau memilih untuk tidak memasukan menu<br />
+#### Tambah Restaurant
+  <img width="164" alt="image" src="https://user-images.githubusercontent.com/108977710/232538046-b6cc8f20-65ee-442e-8144-3b29001d6adb.png">
+  admin menambahkan restaurant pada menu ini.
+  admin dapat menambahkan langsung menu pada restarant atau memilih untuk tidak memasukan menu.
 
-* hapus Restaurant
-<img width="168" alt="image" src="https://user-images.githubusercontent.com/108977710/232538658-a01aae43-e97b-4f42-b71f-4b566ee31590.png">
-admin dapat menghapus restaurant yang ada pada menu ini<br />
+#### hapus Restaurant
+  <img width="168" alt="image" src="https://user-images.githubusercontent.com/108977710/232538658-a01aae43-e97b-4f42-b71f-4b566ee31590.png">
+  admin dapat menghapus restaurant yang ada pada menu ini.
 
-* edit restaurant
+#### edit restaurant
 <img width="168" alt="image" src="https://user-images.githubusercontent.com/108977710/232538846-45e71b5a-40ad-4dd6-bb95-ff518977cb13.png">
-admin dapat mengubah data pada restaurant dengan menu ini<br />
+admin dapat mengubah data pada restaurant dengan menu ini.
 
 ### Menu Customer
 <img width="162" alt="image" src="https://user-images.githubusercontent.com/108977710/232539206-8ba1f37f-af1c-4017-90ef-b5744b73d2bc.png">
-Menu Ini hanya akan bisa digunakan saat login menggunakan akun customer<br />
-berikut ini merupakan fitur yang dimiliki menu customer<br />
+Menu Ini hanya akan bisa digunakan saat login menggunakan akun customer.
+berikut ini merupakan fitur yang dimiliki menu customer.
 
-* Buat Pesanan
+#### Buat Pesanan
 <img width="169" alt="image" src="https://user-images.githubusercontent.com/108977710/232539511-10e861b1-c910-41e1-9587-5d858b3c8c33.png">
-customer memembuat pesanan pada menu ini, dengan memilih restaurantnya dan jarak antar terlebih dahulu <br />
+customer memembuat pesanan pada menu ini, dengan memilih restaurantnya dan jarak antar terlebih dahulu.
 
 <img width="189" alt="image" src="https://user-images.githubusercontent.com/108977710/232539748-14335ac2-01ae-4703-aba7-9772232bd3bf.png">
-kemudian memilih menu yang ingin dipesan <br />
+kemudian memilih menu yang ingin dipesan.
 
 <img width="272" alt="image" src="https://user-images.githubusercontent.com/108977710/232545428-8d6a4726-0fa0-4e5c-8abb-45fb2ab6597d.png">
-user dapat melihat pesanannya secara keseluruhan dan dapat memilih untuk konfirmasi, edit pesanan, dan membatalkan pesanan<br />
+user dapat melihat pesanannya secara keseluruhan dan dapat memilih untuk konfirmasi, edit pesanan, dan membatalkan pesanan.
 
-* Lihat Pesanan
+#### Lihat Pesanan
 <img width="166" alt="image" src="https://user-images.githubusercontent.com/108977710/232540278-328fc52e-22bf-42c0-97ec-071ce1094609.png">
-user dapat melihat list pesanan yang telah terbuat di menu ini<br />
+user dapat melihat list pesanan yang telah terbuat di menu ini.
 
 <img width="283" alt="image" src="https://user-images.githubusercontent.com/108977710/232545543-c3f6688e-286b-4f2b-a067-552979e2bc7f.png">
-user dapat melihat salah satu pesanan secara detail<br />
+user dapat melihat salah satu pesanan secara detail.
 
 
 ## UML program-makanan-online
