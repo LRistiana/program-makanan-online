@@ -13,24 +13,24 @@ hanya memiliki 2 jenis akun customer dan admin, masing-masing jenisnya hanya ada
 ### Admin
 fitur yang dimiliki oleh admin adalah manipulasi data restaurant
 
-* Lihat Restaurant
+* Lihat Restaurant <br />
 Fitur ini akan menampilkan list data restaurant yang dimiliki.
 program-makanan-online saat dijalankan.
-* Tambah Restaurant
+* Tambah Restaurant<br />
 fitur ini memungkinkan admin untuk menambahkan data restaurant.
 didalam program-makanan-online.
-* Hapus Restaurant
+* Hapus Restaurant<br />
 fitur ini memungkinkan admin untuk menghapus data restaurant.
 didalam program-makanan-online.
 untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan.
-* Edit Restaurant
+* Edit Restaurant<br />
 fitur ini memungkinkan admin untuk mengediut data restaurant.
 yang dimiliki oleh suatu restaurant.
 untuk menggunakan fitur ini, setidaknya terdapat 1 restaurant yang sudah ditambahkan.
 berikut ini data yang bisa diubah.
 * Nama Restaurant
 * Alamat Restaurant
-* Menu Restaurant
+* Menu Restaurant<br />
 merubah nama dan harga suatu menu, menambah menu, dan menghapus menu.
 * Log Out
     
