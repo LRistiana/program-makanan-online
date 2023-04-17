@@ -12,6 +12,7 @@ hanya memiliki 2 jenis akun customer dan admin, masing-masing jenisnya hanya ada
 ## Fitur
 ### Admin
 fitur yang dimiliki oleh admin adalah manipulasi data restaurant
+
     * Lihat Restaurant
         Fitur ini akan menampilkan list data restaurant yang dimiliki.
         program-makanan-online saat dijalankan.
@@ -35,6 +36,7 @@ fitur yang dimiliki oleh admin adalah manipulasi data restaurant
     
 ### Customer
 fitur yang dimiliki customer hanya membuat order dari restaurant yang tersedia
+
     * Buat Pesanan
         Fitur memungkinkan customer untuk membuat pesanan dengan memilih menu pada suatu restaurant.
         fitur ini hanya bisa digunakan saat sudah ada restaurant di dalam program.
